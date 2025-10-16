@@ -1,16 +1,17 @@
-Here’s a **clean, professional, and well-structured** README with proper markdown styling, code highlighting, and emojis to make it clear and developer-friendly 👇
+<h1 align="center">Guide to Setting Up Para Wallet on React + TypeScript</h1>
+---
+> **Your first step to integrating Para Wallet into your frontend — without reading pages of docs.**
+> Follow this guide to quickly clone, configure, and run the [**Burn-Mint**](https://github.com/SAGE-OF-SIX-PATHS/Burn-Mint) project locally.
 
 ---
 
-# 🚀 Guide to Setting Up Para Wallet on React + TypeScript
+## 🏗️ **Project Overview**
 
-**First step to integrate Para Wallet in your frontend — without the hassle of reading the docs.**
-
-This guide walks you through cloning, setting up, and running the [**Burn-Mint**](https://github.com/SAGE-OF-SIX-PATHS/Burn-Mint) project locally to get Para Wallet running in minutes.
+This guide helps you integrate the **Para Wallet SDK** with your **React + TypeScript** app for seamless blockchain interactions — including wallet connection, message signing, and fUSD mint/burn operations.
 
 ---
 
-## 🧭 1️⃣ Clone the Repository
+## 🧭 **1️⃣ Clone the Repository**
 
 ```bash
 git clone https://github.com/SAGE-OF-SIX-PATHS/Burn-Mint.git
@@ -19,9 +20,9 @@ cd Burn-Mint
 
 ---
 
-## ⚙️ 2️⃣ Create Environment Variables
+## ⚙️ **2️⃣ Set Up Environment Variables**
 
-Create a `.env` file in the project root and add the following:
+Create a `.env` file in your project root and add the following variables 👇
 
 ```bash
 VITE_PARA_API_KEY=<your_para_api_key>
@@ -40,13 +41,16 @@ VITE_DESK_CONTROLLER=<desk_controller_address>
 VITE_ORACLE=<oracle_contract_address>
 ```
 
+💡 **Tip:** Make sure to never commit your `.env` file to GitHub.
+
 ---
 
-## 📦 3️⃣ Install Dependencies
+## 📦 **3️⃣ Install Dependencies**
 
-Choose **your preferred package manager** below 👇
+You can use **pnpm**, **npm**, or **yarn** — choose your preferred manager below 👇
 
-### 🟣 Using **pnpm**
+<details>
+<summary>🟣 <strong>pnpm</strong></summary>
 
 ```bash
 pnpm add @getpara/react-sdk@alpha @tanstack/react-query @getpara/graz@alpha \
@@ -58,9 +62,10 @@ long starknet wagmi viem \
 @solana/wallet-adapter-react @solana/wallet-adapter-walletconnect @solana/web3.js --save-exact
 ```
 
----
+</details>
 
-### 🟢 Using **npm**
+<details>
+<summary>🟢 <strong>npm</strong></summary>
 
 ```bash
 npm install @getpara/react-sdk@alpha @tanstack/react-query @getpara/graz@alpha \
@@ -72,9 +77,10 @@ long starknet wagmi viem \
 @solana/wallet-adapter-react @solana/wallet-adapter-walletconnect @solana/web3.js --save-exact
 ```
 
----
+</details>
 
-### 🔵 Using **yarn**
+<details>
+<summary>🔵 <strong>yarn</strong></summary>
 
 ```bash
 yarn add @getpara/react-sdk@alpha @tanstack/react-query @getpara/graz@alpha \
@@ -86,31 +92,42 @@ long starknet wagmi viem \
 @solana/wallet-adapter-react @solana/wallet-adapter-walletconnect @solana/web3.js --exact
 ```
 
+</details>
+
 ---
 
-## 🧑‍💻 4️⃣ Run the App
+## 🧑‍💻 **4️⃣ Run the App**
 
-### With **pnpm**
+<details>
+<summary>⚡ Using pnpm</summary>
 
 ```bash
 pnpm run dev
 ```
 
-### With **npm**
+</details>
+
+<details>
+<summary>⚡ Using npm</summary>
 
 ```bash
 npm run dev
 ```
 
-### With **yarn**
+</details>
+
+<details>
+<summary>⚡ Using yarn</summary>
 
 ```bash
 yarn dev
 ```
 
+</details>
+
 ---
 
-## 🌐 5️⃣ Open in Browser
+## 🌐 **5️⃣ Open in Browser**
 
 Visit:
 
@@ -120,9 +137,9 @@ http://localhost:5173
 
 ---
 
-## 💼 6️⃣ Interact with the App
+## 💼 **6️⃣ Interact with the App**
 
-| Action                | Description                         |
+| 🧩 **Action**         | 📝 **Description**                  |
 | --------------------- | ----------------------------------- |
 | 🔗 **Connect Wallet** | Click the **Connect Wallet** button |
 | ✍️ **Sign Message**   | Click the **Sign Message** button   |
@@ -131,30 +148,47 @@ http://localhost:5173
 
 ---
 
-## 🧠 Notes
+## 🧠 **Notes & Troubleshooting**
 
-* Ensure your **Para API key** and **WalletConnect Project ID** are correct.
-* Use **Fluent Testnet RPC** for testing.
-* If you get dependency issues, delete `node_modules` and lockfiles, then reinstall.
+✅ Ensure:
 
----
-
-## 🪙 What You’ll Get
-
-Once setup is complete:
-
-* A React + TypeScript app connected to **Para Wallet**
-* Wallet connection and message signing
-* fUSD token burning and minting functionality
-* Full support for Cosmos & Solana wallets
+* `VITE_PARA_API_KEY` and `VITE_WALLET_CONNECT_PROJECT_ID` are **valid**
+* You’re using **Fluent Testnet RPC** for testing
+* If errors occur, delete `node_modules` + lockfiles (`pnpm-lock.yaml`, `package-lock.json`, etc.) and reinstall
 
 ---
 
-## 🧾 License
+## 🪙 **What You’ll Get**
 
-This project is open-sourced under the [MIT License](./LICENSE).
+Once setup is complete, you’ll have:
+
+* 🔐 A **React + TypeScript** app with integrated **Para Wallet**
+* 🔗 Multi-chain wallet connection (Cosmos, Solana, etc.)
+* 🧾 Message signing, token burning, and minting
+* 🧠 Seamless developer experience with **modern web3 tooling**
 
 ---
 
-Would you like me to make this **GitHub-optimized** (with emojis, collapsible code sections, and shields/badges at the top for repo aesthetics)?
-That would make it look like a polished open-source project README.
+## 🧾 **License**
+
+This project is licensed under the [**MIT License**](./LICENSE).
+
+---
+
+## 💫 **Badges (Optional)**
+
+You can add these at the top of your README for better GitHub visibility:
+
+```md
+![Built with Vite](https://img.shields.io/badge/Built%20with-Vite-646CFF?logo=vite&logoColor=white)
+![Uses TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Para Wallet](https://img.shields.io/badge/Powered%20by-Para%20Wallet-00D395?logo=ethereum&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+```
+
+---
+
+Would you like me to:
+
+1. Add **visual badges** and **collapsible screenshots** for “Connect Wallet / Mint / Burn” steps?
+2. Or keep it as this clean text-only professional version for GitHub?
