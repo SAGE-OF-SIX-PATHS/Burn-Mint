@@ -1,81 +1,160 @@
-First Step to integrate Para wallet in your frontend if you dont want the hassle of reading the Docs, clone the Repository:
-```git clone https://github.com/SAGE-OF-SIX-PATHS/Burn-Mint.git```
+Here’s a **clean, professional, and well-structured** README with proper markdown styling, code highlighting, and emojis to make it clear and developer-friendly 👇
 
-create .env file and add the following variables:
-VITE_PARA_API_KEY
-VITE_WALLET_CONNECT_PROJECT_ID
+---
+
+# 🚀 Guide to Setting Up Para Wallet on React + TypeScript
+
+**First step to integrate Para Wallet in your frontend — without the hassle of reading the docs.**
+
+This guide walks you through cloning, setting up, and running the [**Burn-Mint**](https://github.com/SAGE-OF-SIX-PATHS/Burn-Mint) project locally to get Para Wallet running in minutes.
+
+---
+
+## 🧭 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/SAGE-OF-SIX-PATHS/Burn-Mint.git
+cd Burn-Mint
+```
+
+---
+
+## ⚙️ 2️⃣ Create Environment Variables
+
+Create a `.env` file in the project root and add the following:
+
+```bash
+VITE_PARA_API_KEY=<your_para_api_key>
+VITE_WALLET_CONNECT_PROJECT_ID=<your_walletconnect_project_id>
+
 # Fluent Testnet RPC
-VITE_FLUENT_RPC
+VITE_FLUENT_RPC=<rpc_url>
 
 # fUSD token contract
-VITE_FUSD_ADDRESS
+VITE_FUSD_ADDRESS=<fusd_contract_address>
 
 # DeskController contract
-VITE_DESK_CONTROLLER
+VITE_DESK_CONTROLLER=<desk_controller_address>
 
 # Oracle contract
-VITE_ORACLE
+VITE_ORACLE=<oracle_contract_address>
+```
 
-install para dependencies: 
-# pnpm command
-```pnpm add @getpara/react-sdk@alpha @tanstack/react-query @getpara/graz@alpha @cosmjs/cosmwasm-stargate @cosmjs/launchpad @cosmjs/proto-signing @cosmjs/stargate @cosmjs/tendermint-rpc @leapwallet/cosmos-social-login-capsule-provider long starknet wagmi viem @farcaster/mini-app-solana @farcaster/miniapp-sdk @farcaster/miniapp-wagmi-connector @solana-mobile/wallet-adapter-mobile @solana/wallet-adapter-base @solana/wallet-adapter-react @solana/wallet-adapter-walletconnect @solana/web3.js --save-exact```
+---
 
-run the app: 
-```pnpm run dev```
+## 📦 3️⃣ Install Dependencies
 
-open the app: 
-```http://localhost:5173```
+Choose **your preferred package manager** below 👇
 
-connect wallet: 
-```click on connect wallet button```
+### 🟣 Using **pnpm**
 
-sign message: 
-```click on sign message button```
+```bash
+pnpm add @getpara/react-sdk@alpha @tanstack/react-query @getpara/graz@alpha \
+@cosmjs/cosmwasm-stargate @cosmjs/launchpad @cosmjs/proto-signing \
+@cosmjs/stargate @cosmjs/tendermint-rpc @leapwallet/cosmos-social-login-capsule-provider \
+long starknet wagmi viem \
+@farcaster/mini-app-solana @farcaster/miniapp-sdk @farcaster/miniapp-wagmi-connector \
+@solana-mobile/wallet-adapter-mobile @solana/wallet-adapter-base \
+@solana/wallet-adapter-react @solana/wallet-adapter-walletconnect @solana/web3.js --save-exact
+```
 
-burn fUSD: 
-```click on burn fUSD button```
+---
 
-mint fUSD: 
+### 🟢 Using **npm**
 
-# for npm: 
-```npm install @getpara/react-sdk@alpha @tanstack/react-query @getpara/graz@alpha @cosmjs/cosmwasm-stargate @cosmjs/launchpad @cosmjs/proto-signing @cosmjs/stargate @cosmjs/tendermint-rpc @leapwallet/cosmos-social-login-capsule-provider long starknet wagmi viem @farcaster/mini-app-solana @farcaster/miniapp-sdk @farcaster/miniapp-wagmi-connector @solana-mobile/wallet-adapter-mobile @solana/wallet-adapter-base @solana/wallet-adapter-react @solana/wallet-adapter-walletconnect @solana/web3.js --save-exact```
+```bash
+npm install @getpara/react-sdk@alpha @tanstack/react-query @getpara/graz@alpha \
+@cosmjs/cosmwasm-stargate @cosmjs/launchpad @cosmjs/proto-signing \
+@cosmjs/stargate @cosmjs/tendermint-rpc @leapwallet/cosmos-social-login-capsule-provider \
+long starknet wagmi viem \
+@farcaster/mini-app-solana @farcaster/miniapp-sdk @farcaster/miniapp-wagmi-connector \
+@solana-mobile/wallet-adapter-mobile @solana/wallet-adapter-base \
+@solana/wallet-adapter-react @solana/wallet-adapter-walletconnect @solana/web3.js --save-exact
+```
 
-run the app: 
-```npm run dev```
+---
 
-open the app: 
-```http://localhost:5173```
+### 🔵 Using **yarn**
 
-connect wallet: 
-```click on connect wallet button```
+```bash
+yarn add @getpara/react-sdk@alpha @tanstack/react-query @getpara/graz@alpha \
+@cosmjs/cosmwasm-stargate @cosmjs/launchpad @cosmjs/proto-signing \
+@cosmjs/stargate @cosmjs/tendermint-rpc @leapwallet/cosmos-social-login-capsule-provider \
+long starknet wagmi viem \
+@farcaster/mini-app-solana @farcaster/miniapp-sdk @farcaster/miniapp-wagmi-connector \
+@solana-mobile/wallet-adapter-mobile @solana/wallet-adapter-base \
+@solana/wallet-adapter-react @solana/wallet-adapter-walletconnect @solana/web3.js --exact
+```
 
-sign message: 
-```click on sign message button```
+---
 
-burn fUSD: 
-```click on burn fUSD button```
+## 🧑‍💻 4️⃣ Run the App
 
-mint fUSD: 
-```click on mint fUSD button```
+### With **pnpm**
 
-# for yarn:
-```yarn add @getpara/react-sdk@alpha @tanstack/react-query @getpara/graz@alpha @cosmjs/cosmwasm-stargate @cosmjs/launchpad @cosmjs/proto-signing @cosmjs/stargate @cosmjs/tendermint-rpc @leapwallet/cosmos-social-login-capsule-provider long starknet wagmi viem @farcaster/mini-app-solana @farcaster/miniapp-sdk @farcaster/miniapp-wagmi-connector @solana-mobile/wallet-adapter-mobile @solana/wallet-adapter-base @solana/wallet-adapter-react @solana/wallet-adapter-walletconnect @solana/web3.js --exact```
+```bash
+pnpm run dev
+```
 
-run the app: 
-```yarn dev```
+### With **npm**
 
-open the app: 
-```http://localhost:5173```
+```bash
+npm run dev
+```
 
-connect wallet: 
-```click on connect wallet button```
+### With **yarn**
 
-sign message: 
-```click on sign message button```
+```bash
+yarn dev
+```
 
-burn fUSD: 
-```click on burn fUSD button```
+---
 
-mint fUSD: 
-```click on mint fUSD button```
+## 🌐 5️⃣ Open in Browser
 
+Visit:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 💼 6️⃣ Interact with the App
+
+| Action                | Description                         |
+| --------------------- | ----------------------------------- |
+| 🔗 **Connect Wallet** | Click the **Connect Wallet** button |
+| ✍️ **Sign Message**   | Click the **Sign Message** button   |
+| 🔥 **Burn fUSD**      | Click the **Burn fUSD** button      |
+| 💰 **Mint fUSD**      | Click the **Mint fUSD** button      |
+
+---
+
+## 🧠 Notes
+
+* Ensure your **Para API key** and **WalletConnect Project ID** are correct.
+* Use **Fluent Testnet RPC** for testing.
+* If you get dependency issues, delete `node_modules` and lockfiles, then reinstall.
+
+---
+
+## 🪙 What You’ll Get
+
+Once setup is complete:
+
+* A React + TypeScript app connected to **Para Wallet**
+* Wallet connection and message signing
+* fUSD token burning and minting functionality
+* Full support for Cosmos & Solana wallets
+
+---
+
+## 🧾 License
+
+This project is open-sourced under the [MIT License](./LICENSE).
+
+---
+
+Would you like me to make this **GitHub-optimized** (with emojis, collapsible code sections, and shields/badges at the top for repo aesthetics)?
+That would make it look like a polished open-source project README.
