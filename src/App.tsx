@@ -1,4 +1,5 @@
-import { useState } from "react";
+// src/App.tsx
+import { useState, useEffect } from "react";
 import { useAccount, useModal, useWallet, useSignMessage } from "@getpara/react-sdk";
 import { Header } from "./components/layout/Header";
 import { StatusAlert } from "./components/ui/StatusAlert";
@@ -6,12 +7,18 @@ import { ConnectWalletCard } from "./components/ui/ConnectWalletCard";
 import { SignMessageForm } from "./components/ui/SignMessageForm";
 import { SignatureDisplay } from "./components/ui/SignatureDisplay";
 
+// react-router hook to navigate to dashboard
+import { useNavigate } from "react-router-dom";
+
 export default function Home() {
   const [message, setMessage] = useState("Hello Para!");
   const { openModal } = useModal();
   const { isConnected } = useAccount();
   const { data: wallet } = useWallet();
   const signMessageHook = useSignMessage();
+
+  // ✅ Navigation hook (added) - used to redirect to /dashboard after successful sign
+  const navigate = useNavigate();
 
   const address = wallet?.address;
 
@@ -22,6 +29,7 @@ export default function Home() {
       return;
     }
 
+    // existing signing call — unchanged
     signMessageHook.signMessage({
       walletId: wallet.id,
       messageBase64: btoa(message),
@@ -48,6 +56,22 @@ export default function Home() {
       ? signMessageHook.error.message || "Failed to sign message. Please try again."
       : "Message signed successfully!",
   };
+
+  /**
+   * ✅ New effect: when the sign completes successfully we redirect to /dashboard.
+   *
+   * Why not redirect immediately inside handleSubmit?
+   * - The sign is asynchronous; we wait for `signMessageHook.data` which contains the signature.
+   * - This keeps the UX consistent: user sees "Signing..." and then is navigated only after success.
+   *
+   * This DOES NOT change the signing behavior — it only performs a navigation after success.
+   */
+  useEffect(() => {
+    if (signMessageHook.data && "signature" in signMessageHook.data) {
+      // Navigate to the Dashboard page
+      navigate("/dashboard");
+    }
+  }, [signMessageHook.data, navigate]);
 
   return (
     <>
